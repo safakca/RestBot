@@ -3,5 +3,5 @@ namespace Application.Abstractions;
 // TODO: extends IDisposable !!!
 public interface IUnitOfWork
 {
-    
+    Task<int> SaveChangesAsync();
 }
