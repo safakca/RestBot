@@ -1,7 +1,13 @@
+using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Application;
 
-public class ApplicationServiceRegistration
+public static class ApplicationServiceRegistration
 {
-    //TODO: AutoMapper should be use in this layer and add injection here
-    //TODO: mediatR should be use in this layer and add injection here
+    public static void AddApplicationServices(this IServiceCollection services)
+    {
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+    }
 }

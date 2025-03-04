@@ -10,7 +10,11 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
 {
     private readonly Context _context;
 
-    public WriteRepository(Context context) => _context = context;
+    public WriteRepository(Context context)
+    {
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+        Table = _context.Set<T>();
+    }
 
     public DbSet<T> Table { get; }
 

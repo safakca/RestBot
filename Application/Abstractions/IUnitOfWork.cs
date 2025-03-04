@@ -1,7 +1,10 @@
+using Application.Repositories;
+using Domain.Common;
+
 namespace Application.Abstractions;
-// TODO: create this pattern desing's methods signatures in the project
-// TODO: extends IDisposable !!!
-public interface IUnitOfWork
+public interface IUnitOfWork : IDisposable
 {
+    IReadRepository<T> ReadRepository<T>() where T : BaseEntity;
+    IWriteRepository<T> WriteRepository<T>() where T : BaseEntity;
     Task<int> SaveChangesAsync();
 }

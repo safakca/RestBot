@@ -4,9 +4,10 @@ using Domain.Entities;
 using Persistence.Contexts;
 
 namespace Persistence.Repositories.Reservations;
-public class ReservationReadRepository : ReadRepository<Reservation>, IReservationReadRepository
+
+public class ReservationWriteRepository : WriteRepository<Reservation>, IReservationWriteRepository
 {
-    public ReservationReadRepository(Context context) : base(context)
+    public ReservationWriteRepository(Context context) : base(context)
     {
     }
 }

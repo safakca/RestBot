@@ -1,12 +1,11 @@
+using Application;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// TODO: You can change connection as MSSQL
-var connectionString = builder.Configuration.GetConnectionString("PostgreSQL");
-
 // TODO: You should call the service registrations here
-builder.Services.AddPersistenceServices(connectionString);
+builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddApplicationServices();
 
 // Add services to the container.
 builder.Services.AddControllers(); // MVC tabanlı Controller desteği

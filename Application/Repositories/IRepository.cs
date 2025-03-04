@@ -1,8 +1,9 @@
+using Domain.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Repositories;
 
-public interface IRepository<T> where T : class
+public interface IRepository<T> where T : BaseEntity
 {
-    DbSet<T> Table { get; }
+   // public DbSet<T> Table { get; }
 }
