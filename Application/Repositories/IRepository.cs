@@ -5,5 +5,5 @@ namespace Application.Repositories;
 
 public interface IRepository<T> where T : BaseEntity
 {
-   // public DbSet<T> Table { get; }
+    public DbSet<T> Table { get; }
 }

@@ -31,7 +31,8 @@ public class UnitOfWork : IUnitOfWork
         {
             _writeRepositories[typeof(T)] = new WriteRepository<T>(_context);
         }
-        return (IWriteRepository<T>)_writeRepositories[typeof(T)];    }
+        return (IWriteRepository<T>)_writeRepositories[typeof(T)];    
+    }
 
     public async Task<int> SaveChangesAsync()
     {

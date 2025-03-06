@@ -14,13 +14,13 @@ using Domain.Entities;
 public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
 {
     private readonly Context _context;
-    private DbSet<T> Table => _context.Set<T>();
- 
+
     public ReadRepository(Context context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
+        Table = _context.Set<T>();
     }
-    
+    public DbSet<T> Table { get; }
     public IQueryable<T> GetAll(bool tracking = true)
     {
         var query = Table.AsQueryable();
