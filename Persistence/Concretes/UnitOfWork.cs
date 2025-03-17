@@ -10,7 +10,8 @@ public class UnitOfWork : IUnitOfWork
     private readonly Context _context;
     private readonly Dictionary<Type, object> _readRepositories = new();
     private readonly Dictionary<Type, object> _writeRepositories = new();
-
+    
+// TODO: ARASTIR ConcurrentDictionary<Type, object> _repositories = new();
     public UnitOfWork(Context context)
     {
         _context = context;
