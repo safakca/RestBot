@@ -1,14 +1,11 @@
 using Application.Abstractions;
-using Application.Hubs;
 using Application.Repositories;
 using Application.Repositories.Reservations;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Concretes;
 using Persistence.Contexts;
-using Persistence.Hubs;
 using Persistence.Repositories;
 using Persistence.Repositories.Reservations;
 
@@ -34,20 +31,6 @@ public static class PersistenceServiceRegistration
         // UnitOfWork 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
-        // SignalR
-        services.AddSignalR();
-
-        // Generic Hub
-        services.AddScoped(typeof(IReservationHubService<ReservationHub>), typeof(ReservationHubService<ReservationHub>));
-
-        // IHubContext<T> Çözümlemesi
-        // services.AddScoped<IHubContext<ReservationHub>>(provider =>
-        //     provider.GetRequiredService<HubContext<ReservationHub>>());
-        
-        
-        // SignalR Hub Context Çözümlemesi
-        services.AddSingleton<IHubContext<ReservationHub>>(provider =>
-            provider.GetRequiredService<HubContext<ReservationHub>>());
     }
 }
 
