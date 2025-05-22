@@ -10,11 +10,11 @@ namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class RegistrationController : ControllerBase
+public class ReservationController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public RegistrationController(IMediator mediator)
+    public ReservationController(IMediator mediator)
     {
         _mediator = mediator;
     }
